@@ -2,4 +2,6 @@ fastapi
 uvicorn[standard]
 pandas
 scikit-learn
+
 nltk
+flask-cors==4.0.1
