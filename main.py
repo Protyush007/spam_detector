@@ -10,10 +10,13 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 # Download required NLTK data (only first time)
 nltk.download('stopwords', quiet=True)
-
+app = Flask(__name__)
+CORS(app)
 # ======================
 # 1. Load and preprocess data
 # ======================
@@ -79,4 +82,5 @@ async def home():
 # 4. Run server (only when you run this file directly)
 # ======================
 if __name__ == "__main__":
+
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
